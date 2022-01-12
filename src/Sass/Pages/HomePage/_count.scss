@@ -1,0 +1,31 @@
+.count {
+  background-color: #e5e5e5;
+  padding: 50px 0;
+  .count-background {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .count-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .count-item {
+      width: 25%;
+      text-align: center;
+      .count-number {
+        font-size: 45px;
+        line-height: 50px;
+        font-weight: 900;
+        color: #cda02e;
+      }
+      .count-name {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 400;
+      }
+    }
+  }
+}

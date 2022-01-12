@@ -1,0 +1,61 @@
+.about {
+  padding: 50px 0;
+  .about-container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    .about-title {
+      text-transform: uppercase;
+      font-size: 35px;
+      &::before {
+        display: inline-block;
+        margin: 0 20px 8px 0;
+        height: 3px;
+        content: " ";
+        text-shadow: none;
+        background-color: black;
+        width: 140px;
+      }
+      &::after {
+        display: inline-block;
+        margin: 0 0 8px 20px;
+        height: 3px;
+        content: " ";
+        text-shadow: none;
+        background-color: black;
+        width: 140px;
+      }
+    }
+    .about-detail {
+      width: 50%;
+      line-height: 25px;
+      color: gray;
+      font-size: 17px;
+      margin: 20px auto 50px;
+    }
+    .about-card {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      .card-item {
+        width: calc(100% / 3);
+        padding: 0 10px;
+        .item-icon {
+          width: 60px;
+          height: 60px;
+          color: orangered;
+        }
+        .item-title {
+          margin: 15px 0;
+          font-size: 22px;
+        }
+        .item-detail {
+          margin: 0;
+          line-height: 25px;
+          color: gray;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
