@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import Button from '@mui/material/Button'
+import React, { useEffect, useState } from 'react'
 import About from './About'
 import Carousel from './Carousel'
 import Category from './Category'
 import Count from './Count'
-import Button from '@mui/material/Button';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Review from './Review'
-import Video from './Video'
+import { WOW } from 'wowjs'
 
 export default function HomePage() {
     const [visible, setVisible] = useState(false)
@@ -25,16 +25,22 @@ export default function HomePage() {
             top: 0,
         });
     };
-
+    useEffect(() => {
+        const wow = new WOW({
+            offset: 100,
+            mobile: false,
+            live: true
+        })
+        wow.init();
+    }, [])
     window.addEventListener('scroll', toggleVisible);
     return (
-        <div className='App' style={{ paddingBottom: 500 }}>
+        <div className='App'>
             <Carousel />
             <About />
             <Count />
             <Category />
             <Review />
-            <Video />
             <Button id='backToTop' variant='contained' onClick={scrollToTop} style={{ display: visible ? 'inline' : 'none' }}>
                 <KeyboardArrowUpIcon className='icon' />
             </Button>

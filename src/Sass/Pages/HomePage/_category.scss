@@ -1,11 +1,12 @@
 .category {
   width: 1200px;
   margin: auto;
+  text-align: center;
+  padding-bottom: 50px;
   .title {
     text-transform: uppercase;
-    margin: 50px;
+    margin-top: 50px;
     font-size: 35px;
-    text-align: center;
     &::before {
       display: inline-block;
       margin: 0 20px 8px 0;
@@ -25,21 +26,37 @@
       width: 140px;
     }
   }
+  .slick-list {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .category-item {
     position: relative;
     margin: 0 10px;
-    min-height: 200px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
     overflow: hidden;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      .item-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+      }
+    }
     .item-overlay {
       position: absolute;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.767);
+      transition: all 0.3s;
     }
     .item-title {
       text-shadow: 3px 3px 20px #b89000bb, -2px 1px 30px #b89000bb;
@@ -52,6 +69,51 @@
       color: white;
       font-size: 20px;
       white-space: nowrap;
+    }
+  }
+  .more {
+    border: 1px solid #b89000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #b89000;
+    font-size: 17px;
+    transition: all 0.3s;
+    &:hover {
+      color: white;
+      background-color: #b89000;
+      border: none;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .category {
+    padding: 0 20px 50px;
+    width: 100%;
+    .slick-prev,
+    .slick-next {
+      display: none !important;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .category {
+    padding: 0 20px 30px;
+    .title {
+      margin-top: 30px;
+      font-size: 25px;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    .slick-list {
+      height: auto;
+      margin: 20px 0;
+    }
+    .category-item {
+      .item-title {
+        white-space: unset;
+      }
     }
   }
 }

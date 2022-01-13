@@ -9,13 +9,13 @@ export default function Review() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        // autoplay: true
+        autoplay: true
     };
     return (
         <div className='review'>
             <div className='review-container'>
-                <h1 className='review-title'>Học viên nói gì về LT-Academy</h1>
-                <Slider {...settings}>
+                <h1 className='review-title wow slideInLeft'>Học viên nói gì về LT-Academy</h1>
+                <Slider {...settings} className='wow slideInRight'>
                     <div className='review-item'>
                         <div className='item-content'>
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
@@ -44,6 +44,7 @@ export default function Review() {
                         </div>
                     </div>
                 </Slider>
+                <iframe className='wow fadeInUp' width={960} height={550} title="video" src="https://www.youtube.com/embed/686mNAJVXzA" frameBorder={0} allowFullScreen />
             </div>
         </div>
     )
