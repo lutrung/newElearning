@@ -1,0 +1,124 @@
+.courseList {
+  padding-bottom: 500px;
+  .courseList-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    position: relative;
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .banner-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1200px;
+      .content-title {
+        font-size: 50px;
+        text-transform: uppercase;
+        color: white;
+      }
+    }
+  }
+  .courseList-container {
+    width: 1200px;
+    margin: auto;
+    padding: 50px 0;
+    .courseList-searchSort {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .courseList-search {
+        width: 75%;
+      }
+      .courseList-sort {
+        width: 20%;
+      }
+    }
+    .courseList-body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      .body-products {
+        width: 75%;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .products-item {
+          margin-top: 20px;
+          color: black;
+          width: 30%;
+          border-radius: 5px;
+          overflow: hidden;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+          transition: all 0.3s;
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            transform: scale(1.05);
+          }
+          .item-img {
+            width: 100%;
+            height: 150px;
+          }
+          .item-detail {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .detail-user {
+              text-align: center;
+              width: 30%;
+              .user-img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-bottom: 10px;
+              }
+              h4 {
+                font-size: 15px;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box !important;
+              }
+            }
+            .detail-info {
+              width: 65%;
+              h3 {
+                font-size: 20px;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box !important;
+              }
+              .info-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                p {
+                  margin: 10px 0 5px;
+                  font-size: 15px;
+                }
+                span {
+                  color: gray;
+                }
+              }
+            }
+          }
+        }
+      }
+      .body-catalog {
+        height: 100px;
+        background-color: black;
+        width: 20%;
+      }
+    }
+  }
+}

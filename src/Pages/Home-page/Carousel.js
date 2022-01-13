@@ -1,7 +1,7 @@
 import React from 'react'
 import banner from '../../Assets/Images/banner.jpg';
 
-export default function Carousel() {
+function Carousel() {
     return (
         <div className='carousel' style={{ backgroundImage: `url(${banner})` }}>
             <div className='carousel-overlay'></div>
@@ -15,3 +15,4 @@ export default function Carousel() {
         </div>
     )
 }
+export default React.memo(Carousel)

@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-export default function Review() {
+function Review() {
     var settings = {
         dots: true,
         infinite: true,
@@ -49,3 +49,4 @@ export default function Review() {
         </div>
     )
 }
+export default React.memo(Review)

@@ -1,5 +1,5 @@
 import React from 'react'
-export default function Count() {
+function Count() {
     return (
         <div className='count' >
             <div className='count-background' style={{ backgroundImage: `url(https://cyberlearn.vn/wp-content/uploads/2020/03/funfact_bg.png)` }}>
@@ -25,3 +25,5 @@ export default function Count() {
         </div>
     )
 }
+export default React.memo(Count)
+

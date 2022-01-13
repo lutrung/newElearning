@@ -2,7 +2,7 @@ import React from 'react'
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
-export default function About() {
+function About() {
     return (
         <div id='about' className='about'>
             <div className='about-container'>
@@ -29,3 +29,5 @@ export default function About() {
         </div>
     )
 }
+export default React.memo(About)
+
