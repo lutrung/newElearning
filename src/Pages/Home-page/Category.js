@@ -45,17 +45,15 @@ function Category() {
         ]
     };
     return (
-        <div id='category' className='category wow fadeIn' data-wow-delay="0.5s">
+        <div className='category wow fadeIn' data-wow-delay="0.5s">
             <h2 className='title wow slideInLeft'>Các khóa học</h2>
             <Slider {...settings} className='wow slideInRight'>
                 {courseCatalog?.map((item, index) => {
                     return <div key={index}>
-                        <a href='/'>
-                            <div className='category-item' style={{ backgroundImage: `url(https://picsum.photos/id/${index + 50}/200/300)` }}>
-                                <div className='item-overlay'></div>
-                                <h2 className='item-title'>{item.tenDanhMuc}</h2>
-                            </div>
-                        </a>
+                        <div className='category-item' style={{ backgroundImage: `url(https://picsum.photos/id/${index + 50}/200/300)` }}>
+                            <div className='item-overlay'></div>
+                            <h2 className='item-title'>{item.tenDanhMuc}</h2>
+                        </div>
                     </div>
                 })}
             </Slider>

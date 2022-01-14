@@ -1,36 +1,65 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import banner from '../../Assets/Images/banner.jpg'
 import { TextField, MenuItem } from '@mui/material';
-import { getCourseList } from '../../Redux/Action/CourseAction';
+import { getCourseCatalog, getCourseList } from '../../Redux/Action/CourseAction';
+import Button from '@mui/material/Button';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import PaginationList from 'react-pagination-list';
+import { NavLink } from 'react-router-dom';
+
 const sortBy = [
     {
         value: 1,
-        label: 'Tên A-Z',
-    },
-    {
-        value: 2,
         label: 'Giá tăng dần',
     },
     {
-        value: 3,
+        value: 2,
         label: 'Giá giảm dần',
     }
 
 ];
-export default function CourseList() {
+function CourseList() {
     const dispatch = useDispatch()
-    const courseList = useSelector(state => state.CourseManagerReducer.courseList)
-    // console.log(courseList[1].nguoiTao.hoTen);
+    const [keySearch, setKeySearch] = useState('')
+    const { courseList, courseCatalog } = useSelector(state => state.CourseManagerReducer)
+    const [keyCatalog, setKeyCatalog] = useState('Tất cả')
+    const [showCatalog, setShowCatalog] = useState(false)
+    const onSelectCatelog = (index) => {
+        let listCatelog = document.querySelectorAll('.catalog-item')
+        listCatelog.forEach((item) => {
+            item.classList.remove('active')
+        })
+        listCatelog[index].classList.add('active')
+        setKeyCatalog(listCatelog[index].innerHTML)
+        if (showCatalog) {
+            document.querySelector('.catalog-list').style.height = '0px'
+            setShowCatalog(false)
+        }
+    }
+    const onSearch = (event) => {
+        let newKey = event.target.value
+        setKeySearch(newKey)
+    }
+    const onShowHideCatalog = () => {
+        if (showCatalog) {
+            document.querySelector('.catalog-list').style.height = '0px'
+        } else {
+            document.querySelector('.catalog-list').style.height = '280px'
+        }
+        setShowCatalog(!showCatalog)
+    }
+
     useEffect(() => {
+        dispatch(getCourseCatalog())
         dispatch(getCourseList())
-    }, [])
+    }, [dispatch])
     return (
         <div className='courseList'>
             <div className='courseList-banner' style={{ backgroundImage: `url(${banner})` }}>
                 <div className='overlay'></div>
                 <div className='banner-content'>
-                    <h1 className='content-title'>Các khóa học của chúng tôi</h1>
+                    <h1 className='content-title'>Danh sách các khóa học</h1>
                 </div>
             </div>
             <div className='courseList-container'>
@@ -40,7 +69,7 @@ export default function CourseList() {
                         id="filled-basic"
                         label="Tìm kiếm"
                         variant="outlined"
-                    // onChange={onChange}
+                        onChange={onSearch}
                     />
                     <TextField
                         className='courseList-sort'
@@ -59,41 +88,65 @@ export default function CourseList() {
                 </div>
                 <div className='courseList-body'>
                     <div className='body-products'>
-                        {courseList?.slice(21, 35).map((item, index) => {
-                            return <a key={index} href='/' className='products-item'>
-                                <img className='item-img' alt='' src={item.hinhAnh} onError='https://picsum.photos/50/50/' />
-                                <div className='item-detail'>
-                                    <div className='detail-user'>
-                                        <img className='user-img' alt='' src='https://picsum.photos/50/50' style={{ borderRadius: '50%' }} />
-                                        {console.log(item.nguoiTao)}
-                                        <h4>{item.nguoiTao.hoTen}</h4>
-                                    </div>
-                                    <div className='detail-info'>
-                                        <h3>{item.tenKhoaHoc}</h3>
-                                        <div className='info-bottom'>
-                                            <div className='info-name'>
-                                                <p>Học viên</p>
-                                                <span>{item.soLuongHocVien}</span>
+                        <PaginationList
+                            data={courseList?.filter((item) => {
+                                if (keyCatalog !== 'Tất cả' && keyCatalog !== '') {
+                                    return item.danhMucKhoaHoc.tenDanhMucKhoaHoc === keyCatalog
+                                } else {
+                                    return item
+                                }
+                            }).filter((item) => {
+                                return item.tenKhoaHoc.toLowerCase().indexOf(keySearch) !== -1
+                            })}
+                            pageSize={6}
+                            renderItem={(item, index) => (
+                                <div key={index} className='products-item'>
+                                    <img className='item-img' alt='' src={item.hinhAnh} onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null;
+                                        currentTarget.src = `https://picsum.photos/id/${index}/200/300`;
+                                    }} />
+                                    <div className='item-detail'>
+                                        <div className='detail-info'>
+                                            <div className='info-top'>
+                                                <h3>{item.tenKhoaHoc}</h3>
+                                                <span>Danh mục: {item.danhMucKhoaHoc.maDanhMucKhoahoc}</span>
                                             </div>
-                                            <div className='info-views'>
-                                                <p>Lượt xem</p>
-                                                <span>{item.luotXem}</span>
-                                            </div>
-                                            <div className='info-price'>
-                                                <p>Giá</p>
-                                                <span>50</span>
+                                            <div className='info-bottom'>
+                                                <div className='info-name'>
+                                                    <p>Học viên</p>
+                                                    <span>{item.soLuongHocVien}</span>
+                                                </div>
+                                                <div className='info-views'>
+                                                    <p>Lượt xem</p>
+                                                    <span>{item.luotXem}</span>
+                                                </div>
+                                                <div className='info-price'>
+                                                    <p>Giá</p>
+                                                    <span>...</span>
+                                                </div>
+                                                <div className='bottom-action'>
+                                                    <NavLink to={'/chitiet/' + item.maKhoaHoc}><Button className='btn-action' variant="outlined">Chi tiết</Button></NavLink>
+                                                    <Button className='btn-action' variant="contained" ><ShoppingCartOutlinedIcon /> Thêm vào giỏ</Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        })}
+                            )}
+                        />
                     </div>
                     <div className='body-catalog'>
-
+                        <h2 className='catalog-title'>Danh mục <i className={`fas fa-caret-${showCatalog ? 'up' : 'down'} catalog-down`} onClick={onShowHideCatalog}></i></h2>
+                        <ul className='catalog-list'>
+                            <li key={0} className='catalog-item active' onClick={() => onSelectCatelog(0)}>Tất cả</li>
+                            {courseCatalog?.map((item, index) => {
+                                return <li className='catalog-item' key={index + 1} onClick={() => onSelectCatelog(index + 1)}>{item.tenDanhMuc}</li>
+                            })}
+                        </ul>
                     </div>
                 </div>
             </div>
         </div >
     )
 }
+export default React.memo(CourseList)

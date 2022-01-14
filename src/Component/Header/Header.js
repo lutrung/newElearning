@@ -29,8 +29,8 @@ export default function Header() {
                 <div className='header-menu'>
                     <ul className='menu-list'>
                         <li><a className='list-item' href='/'><HomeOutlinedIcon className='item-icon' />Trang chủ</a></li>
-                        <li><a className='list-item' href='#about'><BadgeOutlinedIcon className='item-icon' />Giới Thiệu</a></li>
-                        <li><a className='list-item' href='#category'><LibraryBooksOutlinedIcon className='item-icon' />Khóa Học</a></li>
+                        <li><a className='list-item' href='/#about'><BadgeOutlinedIcon className='item-icon' />Giới Thiệu</a></li>
+                        <li><a className='list-item' href='/#category'><LibraryBooksOutlinedIcon className='item-icon' />Khóa Học</a></li>
                         <li><a className='list-item' href='#footer'><LocalPhoneOutlinedIcon className='item-icon' />Liên Hệ</a></li>
                         <li><a className='list-item item-user' href='/'>Đăng nhập/Đăng ký</a></li>
                     </ul>
@@ -53,10 +53,10 @@ export default function Header() {
                         </div>
                         <ul className='menu-list'>
                             <li className='menu-item'>
-                                <a href='#about' className='nav__mobile-link'>Giới Thiệu</a>
+                                <a href='/#about' className='nav__mobile-link'>Giới Thiệu</a>
                             </li>
                             <li className='menu-item'>
-                                <a href='#category' className='nav__mobile-link'>Khóa Học</a>
+                                <a href='/#category' className='nav__mobile-link'>Khóa Học</a>
                             </li>
                             <li className='menu-item'>
                                 <a href='#footer' className='nav__mobile-link'>Liên Hệ</a>

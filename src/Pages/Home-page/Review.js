@@ -21,8 +21,8 @@ function Review() {
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
                         </div>
                         <div className='item-user'>
-                            <img className='user-avatar' src='https://picsum.photos/75/75' alt='' />
-                            <p className='user-name'>Iron Man</p>
+                            <img className='user-avatar' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpPGoxCJrh8O044hXPa8cafY-YORCeCSXvaA&usqp=CAU' alt='' />
+                            <p className='user-name'>Chucky</p>
                         </div>
                     </div>
                     <div className='review-item'>
@@ -30,8 +30,10 @@ function Review() {
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
                         </div>
                         <div className='item-user'>
-                            <img className='user-avatar' src='https://picsum.photos/75/75' alt='' />
-                            <p className='user-name'>Thor</p>
+                            <div className='user-avatar'>
+                                <img src='https://vcdn-giaitri.vnecdn.net/2019/03/31/set-top-annabelle-comes-home-C-3206-1248-1554002819.jpg' alt='' />
+                            </div>
+                            <p className='user-name'>Annabella</p>
                         </div>
                     </div>
                     <div className='review-item'>
@@ -39,8 +41,8 @@ function Review() {
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
                         </div>
                         <div className='item-user'>
-                            <img className='user-avatar' src='https://picsum.photos/75/75' alt='' />
-                            <p className='user-name'>Captain America</p>
+                            <img className='user-avatar' src='https://vcdn1-giaitri.vnecdn.net/2018/09/10/settopvideothenungioithieuvutr-9940-7895-1536550930.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=Imav9EEwYy8dqBRIFOLTYg' alt='' />
+                            <p className='user-name'>Valak</p>
                         </div>
                     </div>
                 </Slider>

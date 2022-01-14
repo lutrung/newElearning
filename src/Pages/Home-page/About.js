@@ -4,7 +4,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 function About() {
     return (
-        <div id='about' className='about'>
+        <div className='about'>
             <div className='about-container'>
                 <h1 className='about-title wow slideInLeft'>Điểm ưu việt chỉ có ở LT-Academy</h1>
                 <p className='about-detail wow slideInRight'>LT-Academy là học viện tiên phong tại Việt Nam áp dụng phương pháp đào tạo Active Learning và Flipped Learning thông qua các dự án thực tiễn trong lĩnh vực đào tạo CNTT. Học viên sẽ đóng vai trò là một Scrum member trong mô hình Agile để trở thành một lập trình chuyên nghiệp, đáp ứng mọi nhu cầu tuyển dụng của Doanh nghiệp.</p>

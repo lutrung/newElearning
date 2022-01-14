@@ -10,6 +10,7 @@ function Carousel() {
                     <h1>KHỞI ĐẦU SỰ NGHIỆP CỦA BẠN</h1>
                     <p>Học thật, dự án thật, việc làm thật <br />Trở thành lập trình chuyên nghiệp tại LT-Academy</p>
                     <a href='#category'>Xem khóa học</a>
+                    <div id='about'></div>
                 </div>
             </div>
         </div>

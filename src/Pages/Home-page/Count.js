@@ -2,6 +2,7 @@ import React from 'react'
 function Count() {
     return (
         <div className='count' >
+            <div id='category'></div>
             <div className='count-background' style={{ backgroundImage: `url(https://cyberlearn.vn/wp-content/uploads/2020/03/funfact_bg.png)` }}>
                 <div className='count-container'>
                     <div className='count-item wow flipInX' data-wow-duration="2s">
