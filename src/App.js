@@ -4,6 +4,7 @@ import CourseDetail from './Pages/CourseDetail/CourseDetail';
 import CourseList from './Pages/CourseList/CourseList';
 import HomePage from './Pages/Home-page/Home-page';
 import './Sass/main.css';
+import 'react-toastify/dist/ReactToastify.css';
 import HomeTemplates from './Templates/HomeTemplates';
 
 function App() {

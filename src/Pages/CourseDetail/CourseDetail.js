@@ -10,16 +10,25 @@ import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
 import Button from '@mui/material/Button';
+import { ADD_ITEM } from '../../Redux/Const/Course-Const';
+import { ToastContainer } from 'react-toastify';
+
 function CourseDetail(props) {
     const courseCode = props.match.params.courseCode
     const dispatch = useDispatch()
     const { courseDetail } = useSelector(state => state.CourseManagerReducer)
-    console.log(courseDetail);
+    const addItem = (item) => {
+        dispatch({
+            type: ADD_ITEM,
+            item: item
+        })
+    }
     useEffect(() => {
         dispatch(getCourseDetail(courseCode))
     }, [])
     return (
         <div className='courseDetail'>
+            <ToastContainer />
             <div className='courseDetail-banner' style={{ backgroundImage: `url(${banner})` }}>
                 <div className='overlay'></div>
                 <div className='banner-content'>
@@ -35,7 +44,7 @@ function CourseDetail(props) {
                         </div>
                         <div className='detail-teacher'>Giảng viên <p>{courseDetail.nguoiTao?.hoTen}</p></div>
                         <div className='detail-catalog'>Danh mục <p>{courseDetail.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</p></div>
-                        <Button className='detail-add' variant="contained">Thêm vào giỏ hàng</Button>
+                        <Button className='detail-add' variant="contained" onClick={() => addItem(courseDetail)}>Thêm vào giỏ hàng</Button>
                     </div>
                     <div className='left-thumnail' >
                         <img src={courseDetail.hinhAnh} alt='' onError={({ currentTarget }) => {
