@@ -7,7 +7,6 @@ import Category from './Category'
 import Count from './Count'
 import Review from './Review'
 import { WOW } from 'wowjs'
-
 export default function HomePage() {
     const [visible, setVisible] = useState(false)
     const toggleVisible = () => {

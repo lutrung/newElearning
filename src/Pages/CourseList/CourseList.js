@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PaginationList from 'react-pagination-list';
 import { NavLink } from 'react-router-dom';
+import { ADD_ITEM } from '../../Redux/Const/Course-Const';
+import { ToastContainer } from 'react-toastify';
 
 const sortBy = [
     {
@@ -37,6 +39,12 @@ function CourseList() {
             setShowCatalog(false)
         }
     }
+    const addItem = (item) => {
+        dispatch({
+            type: ADD_ITEM,
+            item: item
+        })
+    }
     const onSearch = (event) => {
         let newKey = event.target.value
         setKeySearch(newKey)
@@ -62,6 +70,7 @@ function CourseList() {
                     <h1 className='content-title'>Danh sách các khóa học</h1>
                 </div>
             </div>
+            <ToastContainer />
             <div className='courseList-container'>
                 <div className='courseList-searchSort'>
                     <TextField
@@ -126,7 +135,7 @@ function CourseList() {
                                                 </div>
                                                 <div className='bottom-action'>
                                                     <NavLink to={'/chitiet/' + item.maKhoaHoc}><Button className='btn-action' variant="outlined">Chi tiết</Button></NavLink>
-                                                    <Button className='btn-action' variant="contained" ><ShoppingCartOutlinedIcon /> Thêm vào giỏ</Button>
+                                                    <Button className='btn-action' variant="contained" onClick={() => addItem(item)}><ShoppingCartOutlinedIcon /> Thêm vào giỏ</Button>
                                                 </div>
                                             </div>
                                         </div>

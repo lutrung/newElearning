@@ -13,11 +13,11 @@ import { history } from "./Util/history";
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-  <Router history={history}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router history={history}>
       <App />
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
