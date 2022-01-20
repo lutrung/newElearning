@@ -9,6 +9,7 @@ import PaginationList from 'react-pagination-list';
 import { NavLink } from 'react-router-dom';
 import { ADD_ITEM } from '../../Redux/Const/Course-Const';
 import { ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const sortBy = [
     {
@@ -24,6 +25,8 @@ function CourseList() {
     const dispatch = useDispatch()
     const [keySearch, setKeySearch] = useState('')
     const { courseList, courseCatalog } = useSelector(state => state.CourseManagerReducer)
+    const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
+    const [user, setUser] = useState({})
     const [keyCatalog, setKeyCatalog] = useState('Tất cả')
     const [showCatalog, setShowCatalog] = useState(false)
     const onSelectCatelog = (index) => {
@@ -39,10 +42,15 @@ function CourseList() {
         }
     }
     const addItem = (item) => {
-        dispatch({
-            type: ADD_ITEM,
-            item: item
-        })
+        if (user.taiKhoan) {
+            dispatch({
+                type: ADD_ITEM,
+                item: item
+            })
+        } else {
+            Swal.fire('Thông báo', 'Bạn chưa đăng nhập !', 'error')
+        }
+
     }
     const onSearch = (event) => {
         let newKey = event.target.value
@@ -56,7 +64,11 @@ function CourseList() {
         }
         setShowCatalog(!showCatalog)
     }
-
+    useEffect(() => {
+        if (userSignIn?.taiKhoan) {
+            setUser(userSignIn)
+        }
+    }, [userSignIn]);
     useEffect(() => {
         dispatch(getCourseCatalog())
         dispatch(getCourseList())

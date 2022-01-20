@@ -7,25 +7,25 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAx
 export const signInAction = (accounts) => {
     return async (dispatch) => {
         try {
-            await Axios({
-                url: 'https://https://elearningnew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap',
+            let result = await Axios({
+                url: 'https://elearningnew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap',
                 method: 'POST',
                 data: accounts,
                 headers: {
                     TokenCybersoft: token
                 }
-            }).then((result) => {
-                localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data.content));
-                localStorage.setItem("ACCESSTOKEN", result.data.content.accessToken);
-                Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
-                console.log(result.data.content);
-                dispatch({
-                    type: SIGN_IN,
-                    userSignIn: result.data.content,
-                })
-                history.push('/')
             })
+            console.log(result);
+            localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data));
+            localStorage.setItem("ACCESSTOKEN", result.data.accessToken);
+            Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
+            dispatch({
+                type: SIGN_IN,
+                userSignIn: result.data.content,
+            })
+            history.goBack()
         } catch (err) {
+            console.log(err);
             Swal.fire('Thông báo', 'Tài khoản hoặc mật khẩu không đúng', 'error')
         }
     }

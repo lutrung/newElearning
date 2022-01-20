@@ -309,6 +309,80 @@ li {
   border-radius: 50%;
 }
 
+.header .header-container .header-menu .menu-list .item-login {
+  cursor: pointer;
+  position: relative;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-Login {
+  background-color: #fff;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 25px;
+  margin-left: 15px;
+  min-width: 110px;
+  max-width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-Login .user-name {
+  width: calc(100% - 35px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-align: center;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-Login .user-logo {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.header .header-container .header-menu .menu-list .item-login:hover .user-dropdown {
+  opacity: 1;
+  visibility: unset;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  bottom: -100%;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  padding: 10px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-dropdown a {
+  display: block;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+  white-space: nowrap;
+  color: black;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-dropdown a:hover {
+  color: #b89000;
+}
+
+.header .header-container .header-menu .menu-list .item-login .user-dropdown button {
+  width: 100%;
+}
+
 .header .header-container .header-menu .menu-list .item-user {
   margin-left: 15px;
   padding: 10px 15px;
@@ -1340,7 +1414,7 @@ li {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.651);
 }
 
 .signInUp .signInUp_form {
@@ -1928,7 +2002,8 @@ li {
 
 .courseDetail .courseDetail-body .body-left .left-detail .detail-teacher p,
 .courseDetail .courseDetail-body .body-left .left-detail .detail-catalog p {
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .courseDetail .courseDetail-body .body-left .left-detail .detail-add {
@@ -2211,7 +2286,7 @@ li {
 }
 
 .cart .cart-body .body-left .left-list .list-item .item-left .left-detail .detail-top a {
-  background-color: red;
+  background-color: #2e7d32;
   padding: 5px;
   border-radius: 5px;
   font-weight: bold;

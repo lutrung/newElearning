@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import banner from '../../Assets/Images/banner.jpg'
 import { getCourseDetail } from '../../Redux/Action/CourseAction'
@@ -12,8 +12,10 @@ import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
 import Button from '@mui/material/Button';
 import { ADD_ITEM } from '../../Redux/Const/Course-Const';
 import { ToastContainer } from 'react-toastify';
-
-function CourseDetail(props) {
+import user from '../../Assets/Images/user.png'
+import Header from '../../Component/Header/Header';
+import Footer from '../../Component/Footer/Footer';
+function CourseDetail({ props }) {
     const courseCode = props.match.params.courseCode
     const dispatch = useDispatch()
     const { courseDetail } = useSelector(state => state.CourseManagerReducer)
@@ -26,7 +28,8 @@ function CourseDetail(props) {
     useEffect(() => {
         dispatch(getCourseDetail(courseCode))
     }, [])
-    return (
+    return (<Fragment>
+        <Header />
         <div className='courseDetail'>
             <ToastContainer />
             <div className='courseDetail-banner' style={{ backgroundImage: `url(${banner})` }}>
@@ -40,7 +43,7 @@ function CourseDetail(props) {
                     <h2>{courseDetail.tenKhoaHoc}</h2>
                     <div className='left-detail'>
                         <div className='detail-avatar'>
-                            <img src='https://picsum.photos/200/300' alt='' />
+                            <img src={user} alt='' />
                         </div>
                         <div className='detail-teacher'>Giảng viên <p>{courseDetail.nguoiTao?.hoTen}</p></div>
                         <div className='detail-catalog'>Danh mục <p>{courseDetail.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</p></div>
@@ -95,6 +98,8 @@ function CourseDetail(props) {
                 </div>
             </div>
         </div>
+        <Footer />
+    </Fragment>
     )
 }
 export default React.memo(CourseDetail)

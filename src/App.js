@@ -4,6 +4,8 @@ import CourseDetail from './Pages/CourseDetail/CourseDetail';
 import CourseList from './Pages/CourseList/CourseList';
 import HomePage from './Pages/Home-page/Home-page';
 import './Sass/main.css';
+import { Redirect } from 'react-router';
+
 // import './css/main.css';
 import 'react-toastify/dist/ReactToastify.css';
 import HomeTemplates from './Templates/HomeTemplates';
@@ -17,8 +19,12 @@ function App() {
       <Switch>
         <HomeTemplates exact path="/" Component={HomePage} />
         <HomeTemplates exact path="/khoahoc" Component={CourseList} />
-        <HomeTemplates exact path="/chitiet/:courseCode" Component={CourseDetail} />
-        <HomeTemplates exact path="/giohang" Component={Cart} />
+        <Route exact path="/chitiet/:courseCode" render={(props) => {
+          return localStorage.getItem("USER_SIGNIN") ? <CourseDetail props={props} /> : <Redirect to='/dangnhap' />
+        }}></Route>
+        <Route exact path="/giohang" render={(props) => {
+          return localStorage.getItem("USER_SIGNIN") ? <Cart /> : <Redirect to='/dangnhap' />
+        }}></Route>
         <Route exact path="/dangnhap" component={SignIn} />
         <Route exact path="/dangky" component={SignUp} />
       </Switch>

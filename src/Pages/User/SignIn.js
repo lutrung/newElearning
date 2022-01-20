@@ -32,7 +32,7 @@ export default function SignIn() {
                 onSubmit={handleSubmit}
                 render={(formikProps) => (
                     <Form className='signInUp_form'>
-                        <img className='signInUp_form-logo' alt='...' src={logo} />
+                        <NavLink to='/'><img className='signInUp_form-logo' alt='...' src={logo} /></NavLink>
                         <h2 className='signInUp_form-title'>Đăng nhập</h2>
                         <div className="signInUp_form-input">
                             <div className='input-container'>

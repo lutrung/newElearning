@@ -2,7 +2,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import logo from '../../Assets/Images/logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '@mui/material';
@@ -11,9 +11,13 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_ITEM } from '../../Redux/Const/Course-Const';
 import { NavLink } from 'react-router-dom';
+import userlogo from '../../Assets/Images/user.png'
+import Swal from 'sweetalert2';
 export default function Header() {
     const dispatch = useDispatch()
     const listItemAdd = useSelector(state => state.CourseManagerReducer.listItemAdd)
+    const userSignIn = useSelector(state => state.UserManagerReducer.userSignIn)
+    const [user, setUser] = useState({})
     const [onScroll, setOnScroll] = useState(false)
     const [openCart, setOpenCart] = useState(false)
     const onOpenCart = () => {
@@ -33,6 +37,13 @@ export default function Header() {
             codeCourse: codeCourse
         })
     }
+    useEffect(() => {
+        if (userSignIn) {
+            setUser(userSignIn)
+        }
+    }, [userSignIn]);
+
+
     const renderListItemAdd = () => {
         if (listItemAdd.length !== 0) {
             return listItemAdd?.map((item, index) => {
@@ -56,6 +67,22 @@ export default function Header() {
         }
     }
     window.addEventListener('scroll', toggleOnScroll);
+    const SignOut = () => {
+        Swal.fire({
+            title: 'Bạn có chắc muốn đăng xuất?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Có',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                window.location.href = '/';
+            }
+        })
+    }
     return (
         <div className='header' style={{ backgroundColor: `${onScroll ? '#000' : '#00000093'}` }}>
             <div className='header-container'>
@@ -80,7 +107,17 @@ export default function Header() {
                             </div>
                             <div className='number-item'>{listItemAdd.length}</div>
                         </li>
-                        <li><a className='list-item item-user' href='/'>Đăng nhập/Đăng ký</a></li>
+                        {user.taiKhoan ? <li className='item-login'>
+                            <div className='list-item user-Login'>
+                                <span className='user-name' title={user.taiKhoan} >{user.taiKhoan}</span>
+                                <img className='user-logo' src={userlogo} alt='' />
+                            </div>
+                            <div className='user-dropdown'>
+                                <NavLink to='/thongtincanhan'>Thông tin cá nhân</NavLink>
+                                <Button color='error' className='user-logout' variant="contained" onClick={SignOut}>Đăng xuất</Button>
+                            </div>
+
+                        </li> : <li><NavLink className='list-item item-user' to='/dangnhap'>Đăng nhập/Đăng ký</NavLink></li>}
                     </ul>
                 </div>
                 <div className='header-menu-mobile'>

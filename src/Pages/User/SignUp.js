@@ -26,6 +26,7 @@ export default function SignUp() {
         <div className='signInUp'
             style={{ backgroundImage: `url(${background})` }}
         >
+            <div className='overlay'></div>
             <Formik initialValues={{
                 taiKhoan: '',
                 matKhau: '',
@@ -38,7 +39,7 @@ export default function SignUp() {
                 onSubmit={handleSubmit}
                 render={(formikProps) => (
                     <Form className='signInUp_form'>
-                        <img className='signInUp_form-logo' alt='...' src={logo} />
+                        <NavLink to='/'><img className='signInUp_form-logo' alt='...' src={logo} /></NavLink>
                         <h2 className='signInUp_form-title'>Đăng ký</h2>
                         {/* Tài Khoản */}
                         <div className="signInUp_form-input">
