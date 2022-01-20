@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_ITEM } from '../../Redux/Const/Course-Const';
+import { NavLink } from 'react-router-dom';
 export default function Header() {
     const dispatch = useDispatch()
     const listItemAdd = useSelector(state => state.CourseManagerReducer.listItemAdd)
@@ -18,7 +19,6 @@ export default function Header() {
     const onOpenCart = () => {
         setOpenCart(!openCart)
     }
-
     const toggleOnScroll = () => {
         const scrolled = document.documentElement.scrollTop;
         if (scrolled > 100) {
@@ -73,10 +73,10 @@ export default function Header() {
                         <li className='item-add'>
                             <Button variant="contained" className='shoppingCart' onClick={onOpenCart}><ShoppingCartIcon /></Button>
                             <div style={{ display: `${openCart ? 'flex' : 'none'}` }} className='list-itemAdd'>
-                                <div className='itemAdd-list'>
+                                <div className='itemAdd-list' >
                                     {renderListItemAdd()}
                                 </div>
-                                <Button className='goToCart' variant="contained">ĐI TỚI GIỎ HÀNG</Button>
+                                <NavLink to='/giohang' style={{ textAlign: 'center' }}><Button className='goToCart' variant="contained">ĐI TỚI GIỎ HÀNG</Button></NavLink>
                             </div>
                             <div className='number-item'>{listItemAdd.length}</div>
                         </li>
@@ -90,9 +90,9 @@ export default function Header() {
                             <div className='itemAdd-list'>
                                 {renderListItemAdd()}
                             </div>
-                            <Button className='goToCart' variant="contained">ĐI TỚI GIỎ HÀNG</Button>
+                            <NavLink to='/giohang' style={{ textAlign: 'center' }}><Button className='goToCart' variant="contained">ĐI TỚI GIỎ HÀNG</Button></NavLink>
                         </div>
-                        <div className='number-item'>0</div>
+                        <div className='number-item'>{listItemAdd.length}</div>
                     </div>
                     <label htmlFor='nav-mobile-input' >
                         <MenuIcon className='menu-icon' />

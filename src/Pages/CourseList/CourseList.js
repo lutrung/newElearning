@@ -19,7 +19,6 @@ const sortBy = [
         value: 2,
         label: 'Giá giảm dần',
     }
-
 ];
 function CourseList() {
     const dispatch = useDispatch()
@@ -121,17 +120,19 @@ function CourseList() {
                                                 <span>Danh mục: {item.danhMucKhoaHoc.maDanhMucKhoahoc}</span>
                                             </div>
                                             <div className='info-bottom'>
-                                                <div className='info-name'>
-                                                    <p>Học viên</p>
-                                                    <span>{item.soLuongHocVien}</span>
-                                                </div>
-                                                <div className='info-views'>
-                                                    <p>Lượt xem</p>
-                                                    <span>{item.luotXem}</span>
-                                                </div>
-                                                <div className='info-price'>
-                                                    <p>Giá</p>
-                                                    <span>...</span>
+                                                <div className='bottom-top'>
+                                                    <div className='info-name'>
+                                                        <p>Học viên</p>
+                                                        <span>{item.soLuongHocVien}</span>
+                                                    </div>
+                                                    <div className='info-views'>
+                                                        <p>Lượt xem</p>
+                                                        <span>{item.luotXem}</span>
+                                                    </div>
+                                                    <div className='info-price'>
+                                                        <p>Giá</p>
+                                                        <span>...</span>
+                                                    </div>
                                                 </div>
                                                 <div className='bottom-action'>
                                                     <NavLink to={'/chitiet/' + item.maKhoaHoc}><Button className='btn-action' variant="outlined">Chi tiết</Button></NavLink>

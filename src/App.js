@@ -4,14 +4,12 @@ import CourseDetail from './Pages/CourseDetail/CourseDetail';
 import CourseList from './Pages/CourseList/CourseList';
 import HomePage from './Pages/Home-page/Home-page';
 import './Sass/main.css';
-<<<<<<< HEAD
-import './css/main.css';
-=======
+// import './css/main.css';
 import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 3ee22a30bcb791248e7021f33151b34eee4a9742
 import HomeTemplates from './Templates/HomeTemplates';
 import SignIn from './Pages/User/SignIn';
 import SignUp from './Pages/User/SignUp';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
   return (
@@ -20,6 +18,7 @@ function App() {
         <HomeTemplates exact path="/" Component={HomePage} />
         <HomeTemplates exact path="/khoahoc" Component={CourseList} />
         <HomeTemplates exact path="/chitiet/:courseCode" Component={CourseDetail} />
+        <HomeTemplates exact path="/giohang" Component={Cart} />
         <Route exact path="/dangnhap" component={SignIn} />
         <Route exact path="/dangky" component={SignUp} />
       </Switch>

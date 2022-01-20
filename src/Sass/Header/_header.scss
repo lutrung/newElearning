@@ -68,7 +68,7 @@
               }
               .itemAdd-empty {
                 text-align: center;
-                padding: 20px;
+                padding-top: 10px;
                 color: gray;
                 opacity: 0.7;
               }
@@ -181,6 +181,13 @@
             }
             &::-webkit-scrollbar-thumb {
               background-color: gray;
+            }
+            .itemAdd-empty {
+              text-align: center;
+              padding-top: 10px;
+              font-size: 15px;
+              color: gray;
+              opacity: 0.7;
             }
             .itemAdd-item {
               padding: 10px 20px;

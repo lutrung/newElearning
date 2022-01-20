@@ -79,9 +79,7 @@
             .item-detail {
               .detail-info {
                 .info-bottom {
-                  .info-name,
-                  .info-views,
-                  .info-price {
+                  .bottom-top {
                     display: none;
                   }
                   .bottom-action {
@@ -115,16 +113,19 @@
               }
               .info-bottom {
                 text-align: center;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                p {
-                  margin: 10px 0 5px;
-                  font-size: 15px;
+                .bottom-top {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  p {
+                    margin: 10px 0 5px;
+                    font-size: 15px;
+                  }
+                  span {
+                    color: gray;
+                  }
                 }
-                span {
-                  color: gray;
-                }
+
                 .bottom-action {
                   display: flex;
                   justify-content: space-between;
@@ -217,7 +218,7 @@
         padding: 100px 20px;
         .content-title {
           text-align: center;
-          font: 30px sans-serif;
+          font-size: 30px;
         }
       }
     }
@@ -260,10 +261,8 @@
               .item-detail {
                 .detail-info {
                   .info-bottom {
-                    .info-name,
-                    .info-views,
-                    .info-price {
-                      display: unset;
+                    .bottom-top {
+                      display: flex;
                     }
                   }
                 }
@@ -273,7 +272,9 @@
               .detail-info {
                 .info-bottom {
                   .bottom-action {
-                    display: none;
+                    display: flex;
+                    opacity: 1;
+                    position: unset;
                   }
                 }
               }

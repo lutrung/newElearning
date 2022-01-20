@@ -26,11 +26,11 @@ const CourseManagerReducer = (state = stateDefault, action) => {
                 return item.maKhoaHoc === action.item.maKhoaHoc
             })
             if (!check) {
-                toast.success("Thêm thành công", { theme: 'dark' })
+                toast.success("Thêm thành công", { theme: 'colored' })
                 newListItemAdd.push(action.item)
                 state.listItemAdd = newListItemAdd
             } else {
-                toast.error("Khóa học đã có trong giỏ !", { theme: 'dark' })
+                toast.error("Khóa học đã có trong giỏ !", { theme: 'colored' })
             }
             return { ...state }
         }

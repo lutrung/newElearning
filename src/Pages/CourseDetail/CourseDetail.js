@@ -55,40 +55,42 @@ function CourseDetail(props) {
                 </div>
                 <div className='body-right'>
                     <h2 className='body-title'>Thông tin khóa học</h2>
-                    <div className='right-item'>
-                        <LibraryBooksOutlinedIcon className='item-icon' />
-                        <span className='item-title' >Tên khóa học: </span>
-                        <span className='item-name' title={courseDetail.tenKhoaHoc}>{courseDetail.tenKhoaHoc}</span>
-                    </div>
-                    <div className='right-item'>
-                        <ListOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Danh mục: </span>
-                        <span className='item-name'>{courseDetail.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</span>
-                    </div>
-                    <div className='right-item'>
-                        <AssignmentLateOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Mô tả: </span>
-                        <span className='item-name' title={courseDetail.moTa}>{courseDetail.moTa}</span>
-                    </div>
-                    <div className='right-item'>
-                        <DateRangeOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Ngày tạo: </span>
-                        <span className='item-name'>{courseDetail.ngayTao}</span>
-                    </div>
-                    <div className='right-item'>
-                        <PageviewOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Lượt xem: </span>
-                        <span className='item-name'>{courseDetail.luotXem}</span>
-                    </div>
-                    <div className='right-item'>
-                        <PersonOutlineOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Học viên: </span>
-                        <span className='item-name'>{courseDetail.soLuongHocVien}</span>
-                    </div>
-                    <div className='right-item'>
-                        <LocalAtmOutlinedIcon className='item-icon' />
-                        <span className='item-title'>Giá: </span>
-                        <span className='item-name'>xx</span>
+                    <div className='right-list'>
+                        <div className='right-item'>
+                            <LibraryBooksOutlinedIcon className='item-icon' />
+                            <span className='item-title' >Tên khóa học: </span>
+                            <span className='item-name' title={courseDetail.tenKhoaHoc}>{courseDetail.tenKhoaHoc}</span>
+                        </div>
+                        <div className='right-item'>
+                            <ListOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Danh mục: </span>
+                            <span className='item-name'>{courseDetail.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</span>
+                        </div>
+                        <div className='right-item'>
+                            <AssignmentLateOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Mô tả: </span>
+                            <span className='item-name' title={courseDetail.moTa}>{courseDetail.moTa}</span>
+                        </div>
+                        <div className='right-item'>
+                            <DateRangeOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Ngày tạo: </span>
+                            <span className='item-name'>{courseDetail.ngayTao}</span>
+                        </div>
+                        <div className='right-item'>
+                            <PageviewOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Lượt xem: </span>
+                            <span className='item-name'>{courseDetail.luotXem}</span>
+                        </div>
+                        <div className='right-item'>
+                            <PersonOutlineOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Học viên: </span>
+                            <span className='item-name'>{courseDetail.soLuongHocVien}</span>
+                        </div>
+                        <div className='right-item'>
+                            <LocalAtmOutlinedIcon className='item-icon' />
+                            <span className='item-title'>Giá: </span>
+                            <span className='item-name'>xx</span>
+                        </div>
                     </div>
                 </div>
             </div>
