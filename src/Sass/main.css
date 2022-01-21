@@ -2000,6 +2000,10 @@ li {
           transform: translateY(-50%);
 }
 
+.courseList .courseList-container .courseList-body .body-catalog .catalog-list {
+  padding: 0;
+}
+
 .courseList .courseList-container .courseList-body .body-catalog .catalog-list .catalog-item {
   cursor: pointer;
   padding: 10px;

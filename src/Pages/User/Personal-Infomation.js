@@ -95,56 +95,24 @@ function PersonalInfomation() {
                 <p>Giá trị</p>
               </div>
               <div className='left-list'>
-                {/* {listItemAdd?.map((item, index) => {
-                            return <div key={index} className='list-item'>
-                                <div className='item-left'>
-                                    <img className='left-img' src={item.hinhAnh} alt='' />
-                                    <div className='left-detail'>
-                                        <div className='detail-top'>
-                                            <NavLink to={'/chitiet/' + item.maKhoaHoc}>Chi tiết</NavLink>
-                                            <h2>{item.tenKhoaHoc}</h2>
-                                        </div>
-                                        <p className='detail-bottom'>{item.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</p>
-                                    </div>
-                                </div>
-                                <div className='item-right'>
-                                    <h2>$xxx</h2>
-                                    <Button variant="text" color='error' onClick={() => deleteItemAdd(item.maKhoaHoc)}><DeleteOutlineOutlinedIcon /></Button>
-                                </div>
-                            </div>
-                        })} */}
-                <div className='list-item'>
-                  <div className='item-left'>
-                    <img className='left-img' src='https://picsum.photos/200/300' alt='' />
-                    <div className='left-detail'>
-                      <div className='detail-top'>
-                        <NavLink to={'/chitiet/' + 'haha'}>Chi tiết</NavLink>
-                        <h2>Angular</h2>
+                {listItemAdd?.map((item, index) => {
+                  return <div key={index} className='list-item'>
+                    <div className='item-left'>
+                      <img className='left-img' src={item.hinhAnh} alt='' />
+                      <div className='left-detail'>
+                        <div className='detail-top'>
+                          <NavLink to={'/chitiet/' + item.maKhoaHoc}>Chi tiết</NavLink>
+                          <h2>{item.tenKhoaHoc}</h2>
+                        </div>
+                        <p className='detail-bottom'>{item.danhMucKhoaHoc?.tenDanhMucKhoaHoc}</p>
                       </div>
-                      <p className='detail-bottom'>Lap trinh Backend</p>
+                    </div>
+                    <div className='item-right'>
+                      <h2>$xxx</h2>
+                      <Button variant="text" color='error' onClick={() => deleteItemAdd(item.maKhoaHoc)}><DeleteOutlineOutlinedIcon /></Button>
                     </div>
                   </div>
-                  <div className='item-right'>
-                    <h2>$xxx</h2>
-                    <Button variant="text" color='error'><DeleteOutlineOutlinedIcon /></Button>
-                  </div>
-                </div>
-                <div className='list-item'>
-                  <div className='item-left'>
-                    <img className='left-img' src='https://picsum.photos/200/300' alt='' />
-                    <div className='left-detail'>
-                      <div className='detail-top'>
-                        <NavLink to={'/chitiet/' + 'haha'}>Chi tiết</NavLink>
-                        <h2>React</h2>
-                      </div>
-                      <p className='detail-bottom'>Lap trinh Frontend</p>
-                    </div>
-                  </div>
-                  <div className='item-right'>
-                    <h2>$xxx</h2>
-                    <Button variant="text" color='error'><DeleteOutlineOutlinedIcon /></Button>
-                  </div>
-                </div>
+                })}
               </div>
             </div>
           </div>
