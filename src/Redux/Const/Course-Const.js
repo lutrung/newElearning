@@ -5,3 +5,4 @@ export const GET_COURSE_DETAIL = 'GET_COURSE_DETAIL';
 export const SIGN_IN = 'SIGN_IN';
 export const ADD_ITEM = 'ADD_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const PERSONAL_INFO = 'PERSONAL_INFO';

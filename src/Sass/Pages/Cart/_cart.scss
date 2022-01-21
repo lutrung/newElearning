@@ -100,6 +100,9 @@
                   border-radius: 5px;
                   font-weight: bold;
                   margin-right: 5px;
+                  &:hover {
+                    color: white;
+                  }
                 }
               }
               .detail-bottom {
@@ -110,6 +113,9 @@
           .item-right {
             display: flex;
             align-items: center;
+            h2 {
+              margin: 0;
+            }
             button {
               min-width: unset;
               padding: 10px;

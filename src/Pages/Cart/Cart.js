@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_ITEM } from '../../Redux/Const/Course-Const';
 import Header from '../../Component/Header/Header';
 import Footer from '../../Component/Footer/Footer';
-export default function Cart() {
+function Cart() {
     const dispatch = useDispatch()
     const listItemAdd = useSelector(state => state.CourseManagerReducer.listItemAdd)
     const deleteItemAdd = (codeCourse) => {
@@ -111,3 +111,4 @@ export default function Cart() {
         </Fragment>
     )
 }
+export default React.memo(Cart)

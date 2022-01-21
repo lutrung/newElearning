@@ -1,0 +1,148 @@
+.personal {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: rgb(228, 228, 228);
+  .personal-container {
+    width: 1440px;
+    margin-top: 10%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    .personal-left {
+      background-color: white;
+      width: 25%;
+      padding: 20px 10px;
+      border-radius: 15px;
+      border: 2px solid rgba(172, 172, 172, 0.295);
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      text-align: center;
+      .left-avatar {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+      }
+      .left-name {
+        text-transform: uppercase;
+        padding: 20px 0;
+        border-bottom: 3px dashed rgb(206, 206, 206);
+        margin-bottom: 20px;
+      }
+      .nav-pills {
+        .nav-link {
+          text-align: left;
+          font-size: 17px;
+          padding: 10px;
+        }
+      }
+    }
+    .personal-right {
+      background-color: white;
+      width: 73%;
+      padding: 50px;
+      border-radius: 15px;
+      border: 2px solid rgba(172, 172, 172, 0.295);
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      .tab-pane {
+        .right-title {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .body-left {
+          padding: 10px 20px;
+          width: 100%;
+          .left-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 70px 10px 50px;
+            box-shadow: 0.5rem 0.5rem black, -0.5rem -0.5rem #ccc;
+            background-color: #b89000;
+            p {
+              font-size: 20px;
+              font-weight: bold;
+              color: white;
+            }
+          }
+          .left-list {
+            margin-top: 20px;
+            max-height: 528px;
+            padding: 0 5px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar {
+              visibility: hidden;
+              width: 5px;
+              background-color: #ddd;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: gray;
+            }
+            &:hover {
+              &::-webkit-scrollbar {
+                visibility: visible;
+              }
+            }
+            .list-item {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              border: 1px solid gray;
+              padding: 10px 30px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+              box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+              &:hover {
+                background-color: #8080803d;
+              }
+              .item-left {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .left-img {
+                  width: 150px;
+                  height: 100px;
+                  margin-right: 10px;
+                }
+                .left-detail {
+                  .detail-top {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px 0;
+                    a {
+                      background-color: #2e7d32;
+                      padding: 5px;
+                      border-radius: 5px;
+                      font-weight: bold;
+                      margin-right: 5px;
+                      &:hover {
+                        color: white;
+                      }
+                    }
+                  }
+                  .detail-bottom {
+                    font-size: 15px;
+                  }
+                }
+              }
+              .item-right {
+                display: flex;
+                align-items: center;
+                h2 {
+                  margin: 0;
+                }
+                button {
+                  min-width: unset;
+                  padding: 10px;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ import HomeTemplates from './Templates/HomeTemplates';
 import SignIn from './Pages/User/SignIn';
 import SignUp from './Pages/User/SignUp';
 import Cart from './Pages/Cart/Cart';
+import PersonalInfomation from './Pages/User/Personal-Infomation';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         }}></Route>
         <Route exact path="/giohang" render={(props) => {
           return localStorage.getItem("USER_SIGNIN") ? <Cart /> : <Redirect to='/dangnhap' />
+        }}></Route>
+        <Route exact path="/thongtincanhan" render={(props) => {
+          return localStorage.getItem("USER_SIGNIN") ? <PersonalInfomation /> : <Redirect to='/dangnhap' />
         }}></Route>
         <Route exact path="/dangnhap" component={SignIn} />
         <Route exact path="/dangky" component={SignUp} />
