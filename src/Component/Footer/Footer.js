@@ -8,7 +8,7 @@ export default function Footer() {
                     <p className='left-detail'>LT-ACademy sẽ gởi các khóa học trực tuyến & các chương trình CyberLive hoàn toàn MIỄN PHÍ và các chương trình KHUYẾN MÃI hấp dẫn đến các bạn.</p>
                     <form className="left-form">
                         <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="your.address@email.com" />
-                        <button type="submit" className="btn btn-primary mt-3">ĐĂNG KÝ NHẬN ƯU ĐÃI</button>
+                        <button type="submit" className="btn btn-primary ">ĐĂNG KÝ NHẬN ƯU ĐÃI</button>
                     </form>
                 </div>
                 <div className='footer-center'>

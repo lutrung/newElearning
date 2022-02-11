@@ -50,38 +50,6 @@ function Cart() {
                                 </div>
                             </div>
                         })}
-                        {/* <div className='list-item'>
-                                <div className='item-left'>
-                                    <img className='left-img' src='https://picsum.photos/200/300' alt='' />
-                                    <div className='left-detail'>
-                                        <div className='detail-top'>
-                                            <NavLink to={'/chitiet/' + 'haha'}>Chi tiết</NavLink>
-                                            <h2>Angular</h2>
-                                        </div>
-                                        <p className='detail-bottom'>Lap trinh Backend</p>
-                                    </div>
-                                </div>
-                                <div className='item-right'>
-                                    <h2>$xxx</h2>
-                                    <Button variant="text" color='error'><DeleteOutlineOutlinedIcon /></Button>
-                                </div>
-                            </div>
-                            <div className='list-item'>
-                                <div className='item-left'>
-                                    <img className='left-img' src='https://picsum.photos/200/300' alt='' />
-                                    <div className='left-detail'>
-                                        <div className='detail-top'>
-                                            <NavLink to={'/chitiet/' + 'haha'}>Chi tiết</NavLink>
-                                            <h2>React</h2>
-                                        </div>
-                                        <p className='detail-bottom'>Lap trinh Frontend</p>
-                                    </div>
-                                </div>
-                                <div className='item-right'>
-                                    <h2>$xxx</h2>
-                                    <Button variant="text" color='error'><DeleteOutlineOutlinedIcon /></Button>
-                                </div>
-                            </div> */}
                     </div>
                 </div>
                 <div className='body-right'>
