@@ -1,39 +1,68 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
+// import './css/main.css';
+import 'react-toastify/dist/ReactToastify.css';
+import Header from './Component/Header/Header';
+import Footer from './Component/Footer/Footer';
+import Cart from './Pages/Cart/Cart';
 import CourseDetail from './Pages/CourseDetail/CourseDetail';
 import CourseList from './Pages/CourseList/CourseList';
 import HomePage from './Pages/Home-page/Home-page';
-import './Sass/main.css';
-import { Redirect } from 'react-router';
-
-// import './css/main.css';
-import 'react-toastify/dist/ReactToastify.css';
-import HomeTemplates from './Templates/HomeTemplates';
+import PersonalInfomation from './Pages/User/Personal-Infomation';
 import SignIn from './Pages/User/SignIn';
 import SignUp from './Pages/User/SignUp';
-import Cart from './Pages/Cart/Cart';
-import PersonalInfomation from './Pages/User/Personal-Infomation';
+import './Sass/main.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        <HomeTemplates exact path="/" Component={HomePage} />
-        <HomeTemplates exact path="/khoahoc" Component={CourseList} />
-        <Route exact path="/chitiet/:courseCode" render={(props) => {
-          return localStorage.getItem("USER_SIGNIN") ? <CourseDetail props={props} /> : <Redirect to='/dangnhap' />
-        }}></Route>
-        <Route exact path="/giohang" render={(props) => {
-          return localStorage.getItem("USER_SIGNIN") ? <Cart /> : <Redirect to='/dangnhap' />
-        }}></Route>
-        <Route exact path="/thongtincanhan" render={(props) => {
-          return localStorage.getItem("USER_SIGNIN") ? <PersonalInfomation /> : <Redirect to='/dangnhap' />
-        }}></Route>
-        <Route exact path="/dangnhap" component={SignIn} />
-        <Route exact path="/dangky" component={SignUp} />
-      </Switch>
-    </div>
+    <Routes>
+      <Route path='/' element={
+        <>
+          <Header />
+          <HomePage />
+          <Footer />
+        </>} />
+      <Route path='/khoahoc' element={
+        <>
+          <Header />
+          <CourseList />
+          <Footer />
+        </>} />
+      <Route element={<RequireAuth />} >
+        <Route path='/chitiet/:courseCode' element={
+          <>
+            <Header />
+            <CourseDetail />
+            <Footer />
+          </>} />
+        <Route path='/giohang' element={
+          <>
+            <Header />
+            <Cart />
+            <Footer />
+          </>} />
+        <Route path='/thongtincanhan' element={
+          <>
+            <Header />
+            <PersonalInfomation />
+          </>} />
+      </Route>
+      <Route path='/dangnhap' element={<SignIn />} />
+      <Route path='/dangky' element={<SignUp />} />
+    </Routes >
+
   );
 }
 
 export default App;
+
+let RequireAuth = () => {
+  let location = useLocation()
+  let logged = localStorage.getItem("USER_SIGNIN")
+  if (!logged) {
+    return <Navigate to='/dangnhap' state={{ from: location }} />
+  }
+  return <Outlet />
+}

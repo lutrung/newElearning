@@ -1,7 +1,7 @@
-import Axios from "axios"
-import Swal from "sweetalert2"
-import { history } from '../../Util/history'
-import { PERSONAL_INFO, SIGN_IN } from "../Const/Course-Const"
+import Axios from "axios";
+import Swal from "sweetalert2";
+import { history } from '../../Util/history';
+import { PERSONAL_INFO, SIGN_IN } from "../Const/Course-Const";
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAxNSIsIkhldEhhblN0cmluZyI6IjIwLzA2LzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY1NTY4MzIwMDAwMCIsIm5iZiI6MTYyNjI4MjAwMCwiZXhwIjoxNjU1ODMwODAwfQ.p47FFJpArherjwlM71xTzdulAQIW37pR6fRGD3t3Ji0'
 export const signInAction = (accounts) => {
@@ -15,8 +15,6 @@ export const signInAction = (accounts) => {
                     TokenCybersoft: token
                 }
             })
-            console.log(result.data.accessToken);
-            console.log(token);
             localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data));
             localStorage.setItem("ACCESSTOKEN", result.data.accessToken);
             Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
@@ -24,9 +22,9 @@ export const signInAction = (accounts) => {
                 type: SIGN_IN,
                 userSignIn: result.data.content,
             })
-            history.goBack()
+            history.push('/')
         } catch (err) {
-            console.log(err);
+            console.log("err", err);
             Swal.fire('Thông báo', 'Tài khoản hoặc mật khẩu không đúng', 'error')
         }
     }

@@ -1,12 +1,13 @@
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import Button from '@mui/material/Button'
 import React, { useEffect, useState } from 'react'
+import { WOW } from 'wowjs'
 import About from './About'
 import Carousel from './Carousel'
 import Category from './Category'
 import Count from './Count'
 import Review from './Review'
-import { WOW } from 'wowjs'
+
 export default function HomePage() {
     const [visible, setVisible] = useState(false)
     const toggleVisible = () => {

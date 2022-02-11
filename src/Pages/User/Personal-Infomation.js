@@ -1,12 +1,11 @@
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { TextField } from '@mui/material';
-import React, { Fragment, useEffect, useState } from 'react';
-import userlogo from '../../Assets/Images/user.png';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import { NavLink } from 'react-router-dom';
-import Header from '../../Component/Header/Header';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import userlogo from '../../Assets/Images/user.png';
 import { getPersonalInfo, updateInfo } from '../../Redux/Action/UserAction';
 import { DELETE_ITEM } from '../../Redux/Const/Course-Const';
 function PersonalInfomation() {
@@ -57,7 +56,6 @@ function PersonalInfomation() {
   }, [dispatch]);
 
   return <div className='personal'>
-    <Header />
     <div className='personal-container'>
       <div className='personal-left'>
         <img className='left-avatar' src={userlogo} alt='' />

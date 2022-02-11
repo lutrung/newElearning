@@ -359,8 +359,8 @@ li {
   position: absolute;
   right: -50%;
   bottom: -100%;
-  -webkit-transform: translate(-25%, 50%);
-          transform: translate(-25%, 50%);
+  -webkit-transform: translate(-25%, 60%);
+          transform: translate(-25%, 60%);
   padding: 10px;
   background-color: white;
   border: 1px solid gray;

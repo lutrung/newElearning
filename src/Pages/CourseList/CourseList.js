@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import banner from '../../Assets/Images/banner.jpg'
-import { TextField, MenuItem } from '@mui/material';
-import { getCourseCatalog, getCourseList } from '../../Redux/Action/CourseAction';
-import Button from '@mui/material/Button';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { MenuItem, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import React, { useEffect, useState } from 'react';
 import PaginationList from 'react-pagination-list';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { ADD_ITEM } from '../../Redux/Const/Course-Const';
 import { ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import banner from '../../Assets/Images/banner.jpg';
+import { getCourseCatalog, getCourseList } from '../../Redux/Action/CourseAction';
+import { ADD_ITEM } from '../../Redux/Const/Course-Const';
 
 const sortBy = [
     {
@@ -50,7 +50,6 @@ function CourseList() {
         } else {
             Swal.fire('Thông báo', 'Bạn chưa đăng nhập !', 'error')
         }
-
     }
     const onSearch = (event) => {
         let newKey = event.target.value

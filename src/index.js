@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { rootReducer } from './Redux/Reducer/rootReducer';
 import reduxThunk from 'redux-thunk'
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { history } from "./Util/history";
 
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));

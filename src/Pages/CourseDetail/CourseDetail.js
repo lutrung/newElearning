@@ -1,22 +1,22 @@
-import React, { Fragment, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import banner from '../../Assets/Images/banner.jpg'
-import { getCourseDetail } from '../../Redux/Action/CourseAction'
-import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
-import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import AssignmentLateOutlinedIcon from '@mui/icons-material/AssignmentLateOutlined';
 import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
+import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
 import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
 import Button from '@mui/material/Button';
-import { ADD_ITEM } from '../../Redux/Const/Course-Const';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { ToastContainer } from 'react-toastify';
-import user from '../../Assets/Images/user.png'
-import Header from '../../Component/Header/Header';
-import Footer from '../../Component/Footer/Footer';
-function CourseDetail({ props }) {
-    const courseCode = props.match.params.courseCode
+import banner from '../../Assets/Images/banner.jpg';
+import user from '../../Assets/Images/user.png';
+import { getCourseDetail } from '../../Redux/Action/CourseAction';
+import { ADD_ITEM } from '../../Redux/Const/Course-Const';
+function CourseDetail() {
+
+    const params = useParams();
     const dispatch = useDispatch()
     const { courseDetail } = useSelector(state => state.CourseManagerReducer)
     const addItem = (item) => {
@@ -26,16 +26,16 @@ function CourseDetail({ props }) {
         })
     }
     useEffect(() => {
-        dispatch(getCourseDetail(courseCode))
+        dispatch(getCourseDetail(params.courseCode))
     }, [])
-    return (<Fragment>
-        <Header />
+    return (
         <div className='courseDetail'>
             <ToastContainer />
             <div className='courseDetail-banner' style={{ backgroundImage: `url(${banner})` }}>
                 <div className='overlay'></div>
                 <div className='banner-content'>
                     <h1 className='content-title'>Chi tiết khóa học</h1>
+
                 </div>
             </div>
             <div className='courseDetail-body'>
@@ -98,8 +98,6 @@ function CourseDetail({ props }) {
                 </div>
             </div>
         </div>
-        <Footer />
-    </Fragment>
     )
 }
 export default React.memo(CourseDetail)
