@@ -2493,18 +2493,20 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 10px 0;
 }
 
 .cart .cart-body .body-left .left-list .list-item .item-left .left-detail .detail-top a {
+  margin-top: 4px;
+  white-space: nowrap;
   background-color: #2e7d32;
   padding: 5px;
   border-radius: 5px;
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .cart .cart-body .body-left .left-list .list-item .item-left .left-detail .detail-top a:hover {

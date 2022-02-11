@@ -14,35 +14,31 @@ import SignIn from './Pages/User/SignIn';
 import SignUp from './Pages/User/SignUp';
 import './Sass/main.css';
 
-
+let HomeTemplates = (children) => {
+  return <>
+    <Header />
+    {children}
+    <Footer />
+  </>
+}
+let RequireAuth = () => {
+  let location = useLocation()
+  let logged = localStorage.getItem("USER_SIGNIN")
+  if (!logged) {
+    return <Navigate to='/dangnhap' state={{ from: location }} />
+  }
+  return <Outlet />
+}
 function App() {
   return (
     <Routes>
-      <Route path='/' element={
-        <>
-          <Header />
-          <HomePage />
-          <Footer />
-        </>} />
-      <Route path='/khoahoc' element={
-        <>
-          <Header />
-          <CourseList />
-          <Footer />
-        </>} />
+      <Route path='/' element={HomeTemplates(<HomePage />)} />
+      <Route path='/khoahoc' element={HomeTemplates(<CourseList />)} />
+      <Route path='/' element={HomeTemplates(<HomePage />)} />
+      <Route path='/' element={HomeTemplates(<HomePage />)} />
       <Route element={<RequireAuth />} >
-        <Route path='/chitiet/:courseCode' element={
-          <>
-            <Header />
-            <CourseDetail />
-            <Footer />
-          </>} />
-        <Route path='/giohang' element={
-          <>
-            <Header />
-            <Cart />
-            <Footer />
-          </>} />
+        <Route path='/chitiet/:courseCode' element={HomeTemplates(<CourseDetail />)} />
+        <Route path='/giohang' element={HomeTemplates(<Cart />)} />
         <Route path='/thongtincanhan' element={
           <>
             <Header />
@@ -58,11 +54,4 @@ function App() {
 
 export default App;
 
-let RequireAuth = () => {
-  let location = useLocation()
-  let logged = localStorage.getItem("USER_SIGNIN")
-  if (!logged) {
-    return <Navigate to='/dangnhap' state={{ from: location }} />
-  }
-  return <Outlet />
-}
+

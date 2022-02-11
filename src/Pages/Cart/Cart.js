@@ -32,7 +32,10 @@ function Cart() {
                         {listItemAdd?.map((item, index) => {
                             return <div key={index} className='list-item'>
                                 <div className='item-left'>
-                                    <img className='left-img' src={item.hinhAnh} alt='' />
+                                    <img className='left-img' src={item.hinhAnh} alt='' onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null;
+                                        currentTarget.src = `https://picsum.photos/id/${index}/200/300`;
+                                    }} />
                                     <div className='left-detail'>
                                         <div className='detail-top'>
                                             <NavLink to={'/chitiet/' + item.maKhoaHoc}>Chi tiết</NavLink>
