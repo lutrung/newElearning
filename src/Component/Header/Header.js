@@ -3,7 +3,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import React, { Fragment, useEffect, useState } from 'react';
-import logo from '../../Assets/Images/logo.png';
+import logo from '../../Assets/Images/logo1.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -13,6 +13,7 @@ import { DELETE_ITEM } from '../../Redux/Const/Course-Const';
 import { NavLink } from 'react-router-dom';
 import userlogo from '../../Assets/Images/user.png'
 import Swal from 'sweetalert2';
+import { width } from '@mui/system';
 export default function Header() {
     const dispatch = useDispatch()
     const listItemAdd = useSelector(state => state.CourseManagerReducer.listItemAdd)
@@ -139,9 +140,13 @@ export default function Header() {
                     <nav className='nav__mobile'>
                         <div className='menu-login'>
                             <div className='login-left'>
-                                <Fragment>
+                                {user.taiKhoan ? <Fragment>
+                                    <img className='user-logo' src={userlogo} alt='' style={{ width: 50 }} />
+                                    <a href='/thongtincanhan' className='login-user'>{user.hoTen}</a>
+                                </Fragment> : <Fragment>
                                     <i className="fa fa-user-circle login-icon"></i>
-                                    <a href='/dangnhap' className='login-user'>Đăng nhập</a></Fragment>
+                                    <a href='/dangnhap' className='login-user'>Đăng nhập</a>
+                                </Fragment>}
                             </div>
                             <label htmlFor='nav-mobile-input'><i className="fa fa-angle-right login-arrow"></i></label>
 

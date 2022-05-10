@@ -124,7 +124,7 @@ li {
   width: 100%;
   background-color: #00000093;
   color: white;
-  padding: 10px 0;
+  padding: 10px 20px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -535,13 +535,7 @@ li {
   border-radius: 50%;
 }
 
-@media screen and (max-width: 1024px) {
-  .header {
-    padding: 10px;
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 969px) {
   .header {
     position: unset;
     background-color: #000 !important;
@@ -1571,7 +1565,7 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #e4e4e4;
+  padding: 0 20px;
 }
 
 .personal .personal-container {
@@ -1765,6 +1759,48 @@ li {
   min-width: unset;
   padding: 10px;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 969px) {
+  .personal {
+    height: auto;
+  }
+  .personal .personal-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 10%;
+  }
+  .personal .personal-container .personal-left {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .personal .personal-container .personal-left .left-left {
+    width: 30%;
+  }
+  .personal .personal-container .personal-left .left-left .left-avatar {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+  }
+  .personal .personal-container .personal-left .left-right {
+    width: 70%;
+    padding-left: 20px;
+  }
+  .personal .personal-container .personal-right {
+    width: 100%;
+    padding: 25px;
+  }
 }
 
 .courseList .Toastify .Toastify__toast-container {

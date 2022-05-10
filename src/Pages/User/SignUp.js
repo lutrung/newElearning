@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import background from '../../Assets/Images/banner.jpg';
-import logo from '../../Assets/Images/logo.png';
+import logo from '../../Assets/Images/logo1.png';
 import { signUpAction } from '../../Redux/Action/UserAction';
 const signUpUserSchema = yup.object().shape({
     taiKhoan: yup.string().required('*Tài khoản không được bỏ trống!'),

@@ -17,12 +17,23 @@ export const signInAction = (accounts) => {
             })
             localStorage.setItem("USER_SIGNIN", JSON.stringify(result.data));
             localStorage.setItem("ACCESSTOKEN", result.data.accessToken);
-            Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
+            // Swal.fire('Thông báo', 'Đăng nhập thành công', 'success')
             dispatch({
                 type: SIGN_IN,
                 userSignIn: result.data.content,
             })
-            history.push('/')
+            Swal.fire({
+                title: 'Thông báo',
+                icon: 'success',
+                text: 'Đăng nhập thành công',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                window.location.href = '/';
+            })
+            // history.push('/')
+            // window.location.href = '/'
         } catch (err) {
             console.log("err", err);
             Swal.fire('Thông báo', 'Tài khoản hoặc mật khẩu không đúng', 'error')
@@ -40,8 +51,17 @@ export const signUpAction = (accounts) => {
                     TokenCybersoft: token
                 }
             })
-            Swal.fire('Thông báo', 'Đăng ký thành công', 'success')
-            history.push('/dangnhap')
+            Swal.fire({
+                title: 'Thông báo',
+                icon: 'success',
+                text: 'Đăng ký thành công',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Đăng nhập',
+            }).then(() => {
+                window.location.href = '/dangnhap';
+            })
+            // history.push('/dangnhap')
         } catch (error) {
             Swal.fire('Thông báo', 'Đăng ký thất bại', 'error')
         }

@@ -58,9 +58,11 @@ function PersonalInfomation() {
   return <div className='personal'>
     <div className='personal-container'>
       <div className='personal-left'>
-        <img className='left-avatar' src={userlogo} alt='' />
-        <h2 className='left-name'>{user.hoTen}</h2>
-        <div className="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <div className='left-left'>
+          <img className='left-avatar' src={userlogo} alt='' />
+          <h2 className='left-name'>{user.hoTen}</h2>
+        </div>
+        <div className="left-right nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
           <button className="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Thông tin tài khoản</button>
           <button className="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Khóa học ghi danh</button>
           <button className="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Khóa học của tôi</button>
