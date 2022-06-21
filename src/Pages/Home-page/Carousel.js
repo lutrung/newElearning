@@ -2,6 +2,7 @@ import React from 'react'
 import banner from '../../Assets/Images/banner.jpg';
 
 function Carousel() {
+
     return (
         <div className='carousel' style={{ backgroundImage: `url(${banner})` }}>
             <div className='carousel-overlay'></div>
